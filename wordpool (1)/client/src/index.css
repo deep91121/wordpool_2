@@ -1,0 +1,304 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --font-display: "Google Sans", system-ui, sans-serif;
+  --font-body: "Roboto", system-ui, sans-serif;
+  --color-tile-correct: var(--tile-correct);
+  --color-tile-correct-border: var(--tile-correct-border);
+  --color-tile-present: var(--tile-present);
+  --color-tile-present-border: var(--tile-present-border);
+  --color-tile-absent: var(--tile-absent);
+  --color-tile-absent-border: var(--tile-absent-border);
+  --color-surface: var(--surface);
+  --color-surface-variant: var(--surface-variant);
+}
+
+:root {
+  --radius: 0.75rem;
+  
+  /* Material Design 3 Tonal Palette — Teal Green Seed */
+  --primary: #006D4C;
+  --primary-foreground: #FFFFFF;
+  --secondary: #7B5A00;
+  --secondary-foreground: #FFFFFF;
+  --muted: #E8E8E4;
+  --muted-foreground: #6B6B6B;
+  --accent: #D4EDE4;
+  --accent-foreground: #005E40;
+  --destructive: #BA1A1A;
+  --destructive-foreground: #FFFFFF;
+  --border: #C8D8D0;
+  --input: #E0F0E6;
+  --ring: #006D4C;
+  --background: #F0F6F3;
+  --foreground: #1C1C1A;
+  --card: #E0F3E8;
+  --card-foreground: #1C1C1A;
+  --popover: #FFFFFF;
+  --popover-foreground: #1C1C1A;
+  --sidebar: #F0F6F3;
+  --sidebar-foreground: #1C1C1A;
+  --sidebar-primary: #006D4C;
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: #D4EDE4;
+  --sidebar-accent-foreground: #005E40;
+  --sidebar-border: #C8D8D0;
+  --sidebar-ring: #006D4C;
+  --chart-1: #006D4C;
+  --chart-2: #7B5A00;
+  --chart-3: #5F7D9E;
+  --chart-4: #BA1A1A;
+  --chart-5: #6B6B6B;
+
+  /* Surfaces */
+  --surface: #F5F3F0;
+  --surface-variant: #E8E8E4;
+
+  /* Tile / key states — single source of truth, used by grid + keyboard */
+  --tile-correct: #4C9A72;
+  --tile-correct-border: #4C9A72;
+  --tile-present: #B89B4A;
+  --tile-present-border: #B89B4A;
+  --tile-absent: #8A8A86;
+  --tile-absent-border: #8A8A86;
+}
+
+.dark {
+  --primary: #4CD898;
+  --primary-foreground: #003A25;
+  --secondary: #E8C45A;
+  --secondary-foreground: #3D2E00;
+  --muted: #2E2E2C;
+  --muted-foreground: #9E9E9E;
+  --accent: #1A3B2A;
+  --accent-foreground: #4CD898;
+  --destructive: #FFB4AB;
+  --destructive-foreground: #690005;
+  --border: #3E4E3E;
+  --input: #1A2E1A;
+  --ring: #4CD898;
+  --background: #111E16;
+  --foreground: #E0F0E6;
+  --card: #1A3B2A;
+  --card-foreground: #E0F0E6;
+  --popover: #1A3B2A;
+  --popover-foreground: #E0F0E6;
+  --sidebar: #111E16;
+  --sidebar-foreground: #E0F0E6;
+  --sidebar-primary: #4CD898;
+  --sidebar-primary-foreground: #003A25;
+  --sidebar-accent: #1A3B2A;
+  --sidebar-accent-foreground: #4CD898;
+  --sidebar-border: #3E4E3E;
+  --sidebar-ring: #4CD898;
+  --chart-1: #4CD898;
+  --chart-2: #E8C45A;
+  --chart-3: #7FA4C8;
+  --chart-4: #FFB4AB;
+  --chart-5: #9E9E9E;
+
+  --surface: #141412;
+  --surface-variant: #2E2E2C;
+
+  --tile-correct: #4CD898;
+  --tile-correct-border: #4CD898;
+  --tile-present: #E8C45A;
+  --tile-present-border: #E8C45A;
+  --tile-absent: #5A5A58;
+  --tile-absent-border: #5A5A58;
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: var(--font-body);
+    -webkit-tap-highlight-color: transparent;
+    touch-action: manipulation;
+    overscroll-behavior: none;
+  }
+  button:not(:disabled),
+  [role="button"]:not([aria-disabled="true"]),
+  [type="button"]:not(:disabled),
+  [type="submit"]:not(:disabled),
+  [type="reset"]:not(:disabled),
+  a[href],
+  select:not(:disabled),
+  input[type="checkbox"]:not(:disabled),
+  input[type="radio"]:not(:disabled) {
+    @apply cursor-pointer;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+  }
+}
+
+@layer components {
+  .container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .flex {
+    min-height: 0;
+    min-width: 0;
+  }
+
+  @media (min-width: 640px) {
+    .container {
+      padding-left: 1.5rem;
+      padding-right: 1.5rem;
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .container {
+      padding-left: 2rem;
+      padding-right: 2rem;
+      max-width: 480px;
+    }
+  }
+}
+
+/* Material Design 3 Elevation System */
+.m3-elevation-1 {
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 1px 3px 1px rgba(0, 0, 0, 0.15);
+}
+.m3-elevation-2 {
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3), 0 4px 8px 3px rgba(0, 0, 0, 0.15);
+}
+.m3-elevation-3 {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 8px 12px 6px rgba(0, 0, 0, 0.15);
+}
+
+/* Row shake animation for invalid words */
+@keyframes row-shake {
+  0%, 100% { transform: translateX(0); }
+  10%, 50%, 90% { transform: translateX(-8px); }
+  30%, 70% { transform: translateX(8px); }
+  20%, 40%, 60%, 80% { transform: translateX(-4px); }
+}
+.row-shake {
+  animation: row-shake 0.4s ease-in-out;
+}
+
+/* Tile flip animation — 3D perspective flip with color change */
+@keyframes tile-flip {
+  0% {
+    transform: perspective(600px) rotateX(0deg);
+    background-color: #FFFFFF;
+    border-color: #D1D1CD;
+    color: #1C1C1A;
+  }
+  45% {
+    transform: perspective(600px) rotateX(90deg);
+    background-color: #FFFFFF;
+    border-color: #D1D1CD;
+    color: #1C1C1A;
+  }
+  50% {
+    transform: perspective(600px) rotateX(90deg);
+    background-color: var(--flip-target-bg);
+    border-color: var(--flip-target-bg);
+    color: #FFFFFF;
+  }
+  95% {
+    transform: perspective(600px) rotateX(0deg);
+    background-color: var(--flip-target-bg);
+    border-color: var(--flip-target-bg);
+    color: #FFFFFF;
+  }
+  100% {
+    transform: perspective(600px) rotateX(0deg);
+    background-color: var(--flip-target-bg);
+    border-color: var(--flip-target-bg);
+    color: #FFFFFF;
+  }
+}
+.tile-flipping {
+  animation: tile-flip 0.6s ease-in-out forwards;
+  transform-origin: center center;
+}
+
+/* Evaluated color classes — applied before flip starts so CSS vars are set */
+.eval-correct {
+  --flip-target-bg: #3C9D6E;
+}
+.eval-present {
+  --flip-target-bg: #C2A84A;
+}
+.eval-absent {
+  --flip-target-bg: #B8B8B8;
+}
+
+/* Tile pop animation for new letter */
+@keyframes tile-pop {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+  100% { transform: scale(1); }
+}
+.tile-pop {
+  animation: tile-pop 0.15s ease-out;
+}
+
+/* Bottom sheet animation */
+@keyframes slide-up {
+  from { transform: translateY(100%); }
+  to { transform: translateY(0); }
+}
+.sheet-enter {
+  animation: slide-up 0.3s cubic-bezier(0.23, 1, 0.32, 1) forwards;
+}
+
+/* Game container fills viewport */
+.game-container {
+  height: 100dvh;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
